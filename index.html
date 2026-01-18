@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>To Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="main-title">TaskFlow</h1>
+      </div>
+
+      <div class="controls">
+        <form class="search-form">
+          <div class="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              width="20"
+              height="20"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607z"
+              />
+            </svg>
+          </div>
+          <input type="text" id="search-input" placeholder="Search tasks..." />
+        </form>
+
+        <div class="filter-dropdown">
+          <div class="filter-selected" id="filter-selected">
+            <span class="filter-text">All categories</span>
+            <svg
+              class="filter-arrow"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              width="20"
+              height="20"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </div>
+          <ul class="filter-options" id="filter-options">
+            <li class="filter-option selected" data-value="all">
+              All categories
+            </li>
+            <li class="filter-option" data-value="work">Work</li>
+            <li class="filter-option" data-value="study">Study</li>
+            <li class="filter-option" data-value="personal">Personal</li>
+            <li class="filter-option" data-value="health">Health</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kanban-sections">
+        <div class="kanban-section todo">
+          <h2 class="section-title">To do</h2>
+        </div>
+        <div class="kanban-section in-progress">
+          <h2 class="section-title">In progress</h2>
+        </div>
+        <div class="kanban-section done">
+          <h2 class="section-title">Done</h2>
+        </div>
+      </div>
+
+      <div class="modal-overlay" data-close></div>
+      <div class="task-modal">
+        <div class="modal-header">
+          <h3>Add task</h3>
+          <button class="modal-close" data-close>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              width="24"
+              height="24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="modal-content">
+          <form id="taskForm">
+            <input type="text" id="taskTitle" placeholder="Title" required />
+            <p class="form-error" id="formError">Title is required</p>
+
+            <textarea
+              id="taskDescription"
+              placeholder="Description (optional)"
+              rows="3"
+            ></textarea>
+
+            <input
+              type="text"
+              id="taskCategory"
+              placeholder="Category / tags (optional)"
+            />
+
+            <div class="tag-suggestions">
+              <span class="suggestion-tag" data-value="work">Work</span>
+              <span class="suggestion-tag" data-value="study">Study</span>
+              <span class="suggestion-tag" data-value="personal">Personal</span>
+              <span class="suggestion-tag" data-value="health">Health</span>
+            </div>
+
+            <button type="button" class="btn-save">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <button class="btn btn-add">
+        <div class="icon-add">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            width="24"
+            height="24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
